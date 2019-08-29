@@ -3,12 +3,18 @@
   "dependencies": {
     "classnames": "^2.1.5",
     "director": "^1.2.0",
-    "react": "^0.13.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "todomvc-app-css": "^2.0.0",
     "todomvc-common": "^1.0.1"
   },
   "devDependencies": {
-    "bin-up": "^1.1.0"
+    "babel-eslint": "^10.0.3",
+    "bin-up": "^1.1.0",
+    "eslint": "^6.2.2",
+    "eslint-plugin-react": "^7.14.3",
+    "parcel-bundler": "^1.12.3",
+    "serve": "^11.1.0"
   },
   "scripts": {
     "cy:open": "bin-up cypress open --project ../.. --env framework=react",
