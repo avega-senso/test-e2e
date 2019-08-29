@@ -7,14 +7,14 @@
     "todomvc-common": "^1.0.5"
   },
   "devDependencies": {
+    "cypress": "^3.4.1",
+    "eslint": "^6.2.2",
+    "eslint-plugin-cypress": "^2.6.1",
+    "prettier": "^1.18.2",
     "serve": "^11.1.0"
   },
   "scripts": {
-    "cy:open": "bin-up cypress open --project ../.. --env framework=react",
-    "cy:run": "bin-up cypress run --project ../.. --env framework=react",
     "start": "npx serve",
-    "test:gui": "bin-up run-p --race start cy:open",
-    "test": "bin-up run-p --race start cy:run",
-    "test:record": "bin-up run-p --race start cy:run:record"
+    "test:cypress": "npx cypress open"
   }
 }
