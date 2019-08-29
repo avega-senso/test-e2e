@@ -33,6 +33,7 @@ var app = app || {};
 						<li>
 							<a
 								href="#/"
+								onClick={() => this.props.updateNowShowing(app.ALL_TODOS)}
 								className={classNames({selected: nowShowing === app.ALL_TODOS})}>
 									All
 							</a>
@@ -41,6 +42,7 @@ var app = app || {};
 						<li>
 							<a
 								href="#/active"
+								onClick={() => this.props.updateNowShowing(app.ACTIVE_TODOS)}
 								className={classNames({selected: nowShowing === app.ACTIVE_TODOS})}>
 									Active
 							</a>
@@ -49,6 +51,7 @@ var app = app || {};
 						<li>
 							<a
 								href="#/completed"
+								onClick={() => this.props.updateNowShowing(app.COMPLETED_TODOS)}
 								className={classNames({selected: nowShowing === app.COMPLETED_TODOS})}>
 									Completed
 							</a>

@@ -2,7 +2,7 @@
 /*jshint white:false */
 /*jshint trailing:false */
 /*jshint newcap:false */
-/*global React, Router*/
+/*global React*/
 var app = app || {};
 
 (function () {
@@ -23,16 +23,6 @@ var app = app || {};
 				editing: null,
 				newTodo: ''
 			};
-		},
-
-		componentDidMount: function () {
-			var setState = this.setState;
-			var router = Router({
-				'/': setState.bind(this, {nowShowing: app.ALL_TODOS}),
-				'/active': setState.bind(this, {nowShowing: app.ACTIVE_TODOS}),
-				'/completed': setState.bind(this, {nowShowing: app.COMPLETED_TODOS})
-			});
-			router.init('/');
 		},
 
 		handleChange: function (event) {
@@ -128,6 +118,7 @@ var app = app || {};
 						completedCount={completedCount}
 						nowShowing={this.state.nowShowing}
 						onClearCompleted={this.clearCompleted}
+						updateNowShowing={(nowShowing) => this.setState({ nowShowing })}
 					/>;
 			}
 
