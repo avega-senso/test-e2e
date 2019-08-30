@@ -15,6 +15,7 @@
   },
   "scripts": {
     "start": "npx serve",
-    "test:cypress": "npx cypress open"
+    "test:cypress": "npx cypress run",
+    "test:cypress:open": "npx cypress open"
   }
 }
