@@ -26,13 +26,29 @@ var app = app || {};
     },
 
     componentDidMount() {
-      window.addEventListener(
-        'popstate',
-        event => {
-          console.log('event', event);
-        },
-        false
-      );
+      this.setStateFromHash(window.location.hash);
+      window.addEventListener('popstate', this.handlePopState, false);
+    },
+
+    componentWillUnmount() {
+      window.removeEventListener('popstate', this.handlePopState, false);
+    },
+
+    handlePopState({ state }) {
+      this.setState(state);
+    },
+
+    setStateFromHash(hash) {
+      const routes = {
+        '#/': app.ALL_TODOS,
+        '#/active': app.ACTIVE_TODOS,
+        '#/completed': app.COMPLETED_TODOS
+      };
+      const nowShowing = routes[hash] || app.ALL_TODOS;
+      const url = hash || '#/';
+
+      window.history.replaceState({ nowShowing }, nowShowing, url);
+      this.setState({ nowShowing });
     },
 
     handleChange: function(event) {
@@ -84,9 +100,8 @@ var app = app || {};
       this.props.model.clearCompleted();
     },
 
-    updateNowShowing: function(nowShowing, url) {
+    updateNowShowing: function(nowShowing) {
       this.setState({ nowShowing });
-      window.history.pushState({ nowShowing: this.state.nowShowing }, nowShowing, url);
     },
 
     render: function() {
