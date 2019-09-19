@@ -11,11 +11,14 @@
     "eslint": "^6.2.2",
     "eslint-plugin-cypress": "^2.6.1",
     "prettier": "^1.18.2",
-    "serve": "^11.1.0"
+    "serve": "^11.1.0",
+    "jasmine": "^2.4.1",
+    "protractor": "^5.4.2"
   },
   "scripts": {
     "start": "npx serve",
     "test:cypress": "npx cypress run",
-    "test:cypress:open": "npx cypress open"
+    "test:cypress:open": "npx cypress open",
+    "test:protractor": "npx protractor protractor-conf.js"
   }
 }

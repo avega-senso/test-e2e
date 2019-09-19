@@ -4,7 +4,9 @@
 ## Run app
 
 ```shell
-npm install && npm start
+npm install
+npx webdriver-manager update
+npm start
 ```
 
 ## Run tests
