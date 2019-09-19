@@ -20,6 +20,9 @@ npm run test:cypress:open
 
 # protractor
 # npm run test:protractor
+
+# testcafe
+# npm run test:testcafe
 ```
 
 ## ToDo
