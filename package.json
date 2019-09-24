@@ -2,6 +2,12 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
+    "cucumber": "^5.1.0",
+    "gherkin": "^7.0.4",
+    "opener": "^1.5.1",
+    "pixelmatch": "^5.1.0",
+    "pngjs": "^3.4.0",
+    "puppeteer": "^1.20.0",
     "react": "^0.13.3",
     "todomvc-app-css": "^2.2.0",
     "todomvc-common": "^1.0.5"
@@ -19,6 +25,7 @@
     "start": "npx serve",
     "test:cypress": "npx cypress run",
     "test:cypress:open": "npx cypress open",
-    "test:protractor": "npx protractor protractor-conf.js"
+    "test:protractor": "npx protractor protractor-conf.js",
+    "test:hsbHack": "cucumber-js hsbHack/**/*.feature --require hsbHack/**/*.js"
   }
 }
