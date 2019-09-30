@@ -28,9 +28,3 @@ npm run test:cypress:open
 ## ToDo
 
 - [ ] Add tests for example frameworks
-
-
-- screenshot from gitlab pipeline
-- get ok to show video from e2e test
-- add data-test-id
-- appium
