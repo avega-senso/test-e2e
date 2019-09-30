@@ -107,3 +107,9 @@ Cypress.Commands.add('createTodo', function(todo) {
         .end();
     });
 });
+
+Cypress.Commands.add('getTodoLabelByIndex', function(index) {
+  cy.get(todoItemsSelector)
+    .eq(index)
+    .find('label');
+});
