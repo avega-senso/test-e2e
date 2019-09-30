@@ -15,7 +15,7 @@ var app = app || {};
 
       if (this.props.completedCount > 0) {
         clearButton = (
-          <button className="clear-completed" onClick={this.props.onClearCompleted}>
+          <button className="clear-completed" data-test-id="clear-completed" onClick={this.props.onClearCompleted}>
             Clear completed
           </button>
         );
@@ -33,7 +33,7 @@ var app = app || {};
 
       return (
         <footer className="footer">
-          <span className="todo-count">
+          <span className="todo-count" data-test-id="todo-count">
             <strong>{this.props.count}</strong> {activeTodoWord} left
           </span>
           <ul className="filters">

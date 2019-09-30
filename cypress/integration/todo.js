@@ -1,8 +1,9 @@
 const selectors = {
-  todoItems: '.todo-list li',
-  count: 'span.todo-count',
-  toggleAll: '.toggle-all',
-  clearCompleted: '.clear-completed'
+  todoItems: 'todo-item',
+  count: 'todo-count',
+  label: 'todo-label',
+  toggleAll: 'toggle-all',
+  clearCompleted: 'clear-completed'
 };
 
 context('Todo', () => {
@@ -10,23 +11,24 @@ context('Todo', () => {
     cy.visit('/');
   });
 
-  const todos = ['Eat', 'Sleep', 'Play', 'Repeat'];
-
   it("should add todo's and completet them", () => {
-    todos.forEach((todo) => cy.createTodo(todo));
+    cy.createTodo('Eat');
+    cy.createTodo('Sleep');
+    cy.createTodo('Play');
+    cy.createTodo('Repeat');
 
-    cy.get(selectors.count).contains(`${todos.length} items left`);
-    cy.get(selectors.todoItems).should('have.length', todos.length);
+    cy.getByTestId(selectors.count).contains(`4 items left`);
+    cy.getByTestId(selectors.todoItems).should('have.length', 4);
 
     cy.getTodoLabelByIndex(0).should('contain', 'Eat');
     cy.getTodoLabelByIndex(1).should('contain', 'Sleep');
     cy.getTodoLabelByIndex(2).should('contain', 'Spela');
     cy.getTodoLabelByIndex(3).should('contain', 'Repeat');
 
-    cy.get(selectors.toggleAll).click();
-    cy.get(selectors.count).contains('0 items left');
-    cy.get(selectors.todoItems).should('have.length', 4);
-    cy.get(selectors.clearCompleted).click();
-    cy.get(selectors.todoItems).should('have.length', 0);
+    cy.getByTestId(selectors.toggleAll).click();
+    cy.getByTestId(selectors.count).contains('0 items left');
+    cy.getByTestId(selectors.todoItems).should('have.length', 4);
+    cy.getByTestId(selectors.clearCompleted).click();
+    cy.getByTestId(selectors.todoItems).should('have.length', 0);
   });
 });

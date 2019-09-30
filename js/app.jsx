@@ -159,6 +159,7 @@ var app = app || {};
             <input
               id="toggle-all"
               className="toggle-all"
+              data-test-id="toggle-all"
               type="checkbox"
               onChange={this.toggleAll}
               checked={activeTodoCount === 0}

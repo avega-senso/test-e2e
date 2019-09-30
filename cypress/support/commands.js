@@ -108,6 +108,10 @@ Cypress.Commands.add('createTodo', function(todo) {
     });
 });
 
+Cypress.Commands.add('getByTestId', function(testId) {
+  cy.get(`[data-test-id=${testId}]`);
+});
+
 Cypress.Commands.add('getTodoLabelByIndex', function(index) {
   cy.get(todoItemsSelector)
     .eq(index)
