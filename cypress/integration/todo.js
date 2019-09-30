@@ -19,16 +19,18 @@ context('Todo', () => {
 
     cy.getByTestId(selectors.count).contains(`4 items left`);
     cy.getByTestId(selectors.todoItems).should('have.length', 4);
-
     cy.getTodoLabelByIndex(0).should('contain', 'Eat');
     cy.getTodoLabelByIndex(1).should('contain', 'Sleep');
     cy.getTodoLabelByIndex(2).should('contain', 'Spela');
     cy.getTodoLabelByIndex(3).should('contain', 'Repeat');
 
     cy.getByTestId(selectors.toggleAll).click();
+
     cy.getByTestId(selectors.count).contains('0 items left');
     cy.getByTestId(selectors.todoItems).should('have.length', 4);
+
     cy.getByTestId(selectors.clearCompleted).click();
+
     cy.getByTestId(selectors.todoItems).should('have.length', 0);
   });
 });
